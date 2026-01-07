@@ -1,0 +1,18 @@
+{
+  "name": "@instago/slug",
+  "version": "1.0.0",
+  "description": "module that makes slug from input string like title",
+  "main": "index.js",
+  "type": "commonjs",
+  "license": "SEE LICENSE IN LICENSE",
+  "keywords": [
+    "instago",
+    "slug",
+    "template"
+  ],
+  "files": [
+    "index.js",
+    "ReadMe.MD",
+    "LICENSE"
+  ]
+}
