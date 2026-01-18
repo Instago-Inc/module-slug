@@ -1,42 +1,32 @@
-# @instago/slug
+# module/slug - V8 module
 
-Make clean URL slugs from titles or phrases. Use it to turn user input into stable, readable identifiers for URLs, filenames, or keys.
+Turn everyday text into clean, readable slugs for URLs, filenames, and IDs. It helps keep user input consistent without pulling in heavy dependencies.
 
-Version: 1.0.0
-Entry: index.js
-Exports: slugify, selfTest
+Built for the Instago V8 runtime. Learn more at https://instago.ai.
 
-Dependencies:
-- ascii@1.0.0
+## Technical reference
 
-## API
+Exports:
+- slugify(input, opts)
+- selfTest()
 
-slugify(input, opts)
-Create a slug from the given input.
+Usage:
+```
+const { slugify, selfTest } = require('slug@latest');
+```
 
-Parameters:
-- input: string or any value convertible to string.
-- opts: optional object.
-  - lower: boolean (default true). Set to false to preserve case.
-  - separator: string (default "-"). Replaces non-alphanumeric runs.
-  - maxLength: number. If set and > 0, trims the slug to this length.
+Configuration:
+- No configure() function.
+- env.json: no required or optional keys.
 
-Returns:
-- string slug.
+Examples:
+```
+const { slugify, selfTest } = require('slug@latest');
 
-selfTest()
-Runs a minimal internal test suite. Returns "ok" on success or throws an error on failure.
+slugify('Hello, World!'); // "hello-world"
+slugify('Creme Brulee'); // "creme-brulee"
+slugify('Already_Slugged', { separator: '_', lower: false }); // "Already_Slugged"
+slugify('This is long', { maxLength: 7 }); // "this-is"
 
-Self-test note:
-- Call selfTest() during startup or CI if you want a quick sanity check of slugify behavior.
-
-## Example
-
-const { slugify, selfTest } = require('@instago/slug');
-
-console.log(slugify('Hello, World!')); // hello-world
-console.log(slugify('Crème Brûlée')); // creme-brulee
-console.log(slugify('Already_Slugged', { separator: '_', lower: false })); // Already_Slugged
-console.log(slugify('This is long', { maxLength: 7 })); // this-is
-
-console.log(selfTest()); // ok
+selfTest(); // "ok"
+```

@@ -1,4 +1,4 @@
-const mod = require('slug@1.0.0');
+const mod = require('slug@latest');
 
 (async () => {
   if (!mod || typeof mod.selfTest !== 'function') {

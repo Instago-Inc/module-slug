@@ -1,5 +1,5 @@
 (function() {
-  const ascii = require('ascii@1.0.0');
+  const ascii = require('ascii@latest');
 
   function escapeRegExp(s) {
     return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
